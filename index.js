@@ -23,7 +23,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 async function Main(){
     console.log('oi');
-    let counte =0;
+    let counter =0;
     const agent = new https.Agent({  
         rejectUnauthorized: false
       });
@@ -32,9 +32,10 @@ async function Main(){
               timestamp: Number.parseInt(new Date().getTime() / 1000),
               tag:`brasil.${regiao[1]}.${sensor[1]}`,
               valor: `${getRandomIntInclusive(0,100)}`,
-          },{httpsAgent:agent}).then(res =>counte++).catch(err=>console.log(err));
+          },{httpsAgent:agent}).then(res =>counter++).catch(err=>console.log(err));
+          //Delay de requisição
           await delay(100);
-        console.log(counte)
+        console.log(counter)
       }
 }
 Main();
